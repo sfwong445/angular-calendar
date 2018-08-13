@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "The backend of an angular calendar app",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "joi": "^13.5.2",
+    "jsonwebtoken": "^8.3.0",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.38.0"
+  },
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "unseed": "cd src && sequelize db:seed:undo:all",
+    "seed": "cd src && sequelize db:seed:all"
+  }
+}

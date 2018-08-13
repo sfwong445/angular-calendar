@@ -1,0 +1,18 @@
+<div class="calendar-container">
+  <h1>Calendar</h1>
+  <mat-form-field>
+    <input matInput placeholder="Title" [(ngModel)]="appointment.title">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Pick a Date" [(ngModel)]="appointment.date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="AddAppointment(appointment)">Submit</button>
+  <mat-divider id="main"></mat-divider>
+  <div *ngFor="let appointment of appointments">
+    <h2>{{appointment.title}}</h2>
+    <p>{{appointment.date.toLocaleDateString('en-US',options)}}</p>
+    <mat-divider></mat-divider>
+  </div>
+</div>

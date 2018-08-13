@@ -1,0 +1,29 @@
+{
+  "development": {
+    "username": "sfwong445",
+    "password": null,
+    "database": "caldev",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432,
+    "secret": "helloMayuko"
+  },
+  "test": {
+    "username": "sfwong445",
+    "password": null,
+    "database": "caldev",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432,
+    "secret": "helloMayuko"
+  },
+  "production": {
+    "username": "sfwong445",
+    "password": null,
+    "database": "caldev",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432,
+    "secret": "helloMayuko"
+  }
+}

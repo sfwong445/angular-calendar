@@ -1,0 +1,45 @@
+.main-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-container {
+    height: 100%;
+    width: 12%;
+    color: #fff;
+    background-color: #DB4437;
+    display: flex;
+    order: 3;
+}
+
+.text-container {
+    height: 100%;
+    width: 88%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 0;
+}
+
+
+.nav-container div {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    height: 70px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.nav-container button {
+    text-align: right;
+}
+
+.active-button {
+    font-weight: bolder;
+    color: yellow;
+}
