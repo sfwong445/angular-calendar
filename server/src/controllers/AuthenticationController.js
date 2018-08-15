@@ -15,6 +15,7 @@ module.exports = {
                 Username: req.body.username,
                 Password: req.body.password
             })
+            console.log(user)
             res.send({
                 user: user.toJSON(), 
                 token: jwtSignUser(user)

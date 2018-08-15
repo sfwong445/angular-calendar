@@ -1,3 +1,6 @@
-<div class="home-container">
-  This will display the user's login and logout status.
+<div class="home-container" *ngIf="loggedIn$ | async">
+  The user is logged in!
+</div>
+<div class="home-container" *ngIf="!(loggedIn$ | async)">
+  The user is not logged in!
 </div>

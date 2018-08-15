@@ -1,19 +1,19 @@
 import { Action } from '@ngrx/store';
-import { Authenticate, User } from '../models/User';
+import { Authenticate } from '../models/User';
 
-export enum AuthActionTypes = {
-    Login =  '[Auth] Login',
-    Logout = '[Auth] Logout'
+export enum AuthActionTypes {
+    LOGIN =  '[Auth] Login',
+    LOGOUT = '[Auth] Logout'
 }
 
 export class Login implements Action {
-    readonly type = AuthActionTypes.Login;
+    readonly type = AuthActionTypes.LOGIN;
 
-    constructor( public payload: Authenticate ) { }
+    constructor(public payload: Authenticate) { }
 }
 
 export class Logout implements Action {
-    readonly type = AuthActionTypes.Logout;
+    readonly type = AuthActionTypes.LOGOUT;
 }
 
-export type AuthActions = Login | Logout;
+export type AuthActions = Login | Logout; 

@@ -17,3 +17,7 @@ mat-form-field {
      text-align: center;
 }
 
+.danger {
+    color: red;
+    width: 100%;
+}

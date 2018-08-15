@@ -12,12 +12,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { CalendarComponent } from './calendar/calendar.component';
+
+import { reducers } from './auth/reducers'
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { CalendarComponent } from './calendar/calendar.component';
     CalendarComponent
   ],
   imports: [
+    StoreModule.forRoot(reducers),
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
