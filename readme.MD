@@ -1,4 +1,4 @@
-#Angular-Calendar
+##Angular-Calendar
 
 This App uses AngularJS 6 and Express to create a calendar app. 
 
