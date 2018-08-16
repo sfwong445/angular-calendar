@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
     Username: "",
     Password: ""
   };
+  
   returnedUser: Authenticate = {
     user: this.user,
     token: ""

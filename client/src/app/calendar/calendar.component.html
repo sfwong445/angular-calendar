@@ -13,7 +13,12 @@
   <div *ngFor="let appointment of appointments">
     <h2>{{appointment.title}}</h2>
     <p>{{appointment.date.toLocaleDateString('en-US',options)}}</p>
-    <button mat-raised-button color="warn" (click)="DeleteAppointment(appointment.id)">Delete</button>
+    <button mat-icon-button (click)="openDialog(appointment)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="DeleteAppointment(appointment.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
     <mat-divider></mat-divider>
   </div>
 </div>

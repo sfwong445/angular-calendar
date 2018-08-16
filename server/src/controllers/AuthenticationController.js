@@ -12,10 +12,9 @@ module.exports = {
     async register(req, res) {
         try {
             const user = await User.create({
-                Username: req.body.username,
-                Password: req.body.password
+                Username: req.body.Username,
+                Password: req.body.Password
             })
-            console.log(user)
             res.send({
                 user: user.toJSON(), 
                 token: jwtSignUser(user)
@@ -48,7 +47,6 @@ module.exports = {
                 }
             }
         } catch (err) {
-            console.log(err)
             res.send({
                 error: 'An error occured while logging in'
             })
@@ -59,7 +57,9 @@ module.exports = {
             const users = await User.findAll()
             res.send(users)
         } catch (err) {
-            console.log(err)
+            res.send({
+                error: 'Error getting all the users'
+            })
         }
     }
 }

@@ -1,6 +1,6 @@
 <div class="home-container" *ngIf="loggedIn$ | async">
-  The user is logged in!
+  <h1>The user is logged in!</h1>
 </div>
 <div class="home-container" *ngIf="!(loggedIn$ | async)">
-  The user is not logged in!
+  <h1>The user is not logged in!</h1>
 </div>

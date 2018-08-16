@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { CalendarService } from '../calendar.service';
 import { Appointment } from '../appointment';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
 
 @Component({
   selector: 'app-calendar',
@@ -18,7 +20,10 @@ export class CalendarComponent implements OnInit {
   appointments: Appointment[];
   options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-  constructor(private calendarService: CalendarService) { }
+  constructor(
+    private calendarService: CalendarService,
+    public dialog: MatDialog
+  ) { }
 
   GetAppointments(): void {
     this.calendarService.getAppointments()
@@ -51,8 +56,37 @@ export class CalendarComponent implements OnInit {
       })
   }
 
+  openDialog(appointment: Appointment): void {
+    const dialogRef = this.dialog.open(
+      AppointmentOverviewDialog, {
+        width: '270px',
+        data: { id: appointment.id, title: appointment.title, date: appointment.date }
+      }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+      this.calendarService.updateAppointment(result)
+        .subscribe(() => {
+          this.GetAppointments()
+        })
+    })
+  }
+
   ngOnInit() {
     this.GetAppointments();
   }
+}
+
+@Component({
+  selector: 'calendar-dialog',
+  templateUrl: 'calendar-dialog.html',
+})
+export class AppointmentOverviewDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<AppointmentOverviewDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Appointment
+  ) {}
 
 }

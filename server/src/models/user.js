@@ -21,11 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     Password: DataTypes.STRING
   }, {
     hooks: {
-      beforeBulkCreate: (user, options) => hashPassword(user),
-      beforeCreate: (user, options) => hashPassword(user),
-      beforeUpdate: (user, options) => hashPassword(user),
       beforeSave: (user, options) => hashPassword(user),
-      afterBulkUpdate: (user, options) => hashPassword(user)
+      beforeUpdate: (user, options) => hashPassword(user),
     }
   });
   User.associate = function(models) {

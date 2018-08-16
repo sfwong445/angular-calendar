@@ -15,4 +15,5 @@ module.exports = function (app) {
     app.get('/appointments', AppointmentController.display);
     app.post('/appointments/add', AppointmentController.add);
     app.delete('/appointments/:appointmentId/delete', AppointmentController.delete);
+    app.put('/appointments/:appointmentId/update', AppointmentController.update);
 }
