@@ -3,14 +3,20 @@
   <div class="nav-container">
     <nav>
       <div id="headerTitle">Calendar</div>
-      <button mat-button routerLink="/home" routerLinkActive="active-button">Home</button>
-      <button mat-button routerLink="/calendar" routerLinkActive="active-button">Calendar</button>
-      <button mat-button routerLink="/register" routerLinkActive="active-button">Register</button>
-      <button mat-button routerLink="/login" routerLinkActive="active-button">Login</button>
-      <button mat-button>Logout</button>
+      <div>
+        <button mat-button routerLink="/home" routerLinkActive="active-button">Home</button>
+        <button mat-button routerLink="/calendar" routerLinkActive="active-button">Calendar</button>
+        <div *ngIf="!(isLoggedIn)">
+          <button mat-button routerLink="/register" routerLinkActive="active-button">Register</button>
+          <button mat-button routerLink="/login" routerLinkActive="active-button">Login</button>
+        </div>
+        <div *ngIf="isLoggedIn">
+          <button mat-button (click)="logout()">Logout</button>
+        </div>
+      </div>
     </nav>
   </div>
   <div class="text-container">
     <router-outlet></router-outlet>
   </div>
-</div>  
+</div>

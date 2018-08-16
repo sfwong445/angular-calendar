@@ -3,7 +3,7 @@ import { AuthenticationService } from "../authentication.service";
 import { User } from "../user";
 import { Authenticate } from "../auth/models/User";
 import { Router } from "@angular/router";
-import { Store } from "../../../node_modules/@ngrx/store";
+import { Store } from "@ngrx/store";
 import * as fromAuth from "../auth/reducers";
 import * as Auth from "../auth/actions/auth-action";
 

@@ -10,6 +10,7 @@ import { Appointment } from '../appointment';
 export class CalendarComponent implements OnInit {
 
   appointment: Appointment = {
+    id: 0,
     title: '',
     date: new Date(Date.now())
   }
@@ -25,11 +26,13 @@ export class CalendarComponent implements OnInit {
         this.appointments = appointments;
         this.appointments = this.appointments.map( appointment => {
           let appointmentWithDateType: Appointment = {
+            id: 0,
             title: '',
             date: new Date('')
           };
           appointmentWithDateType.title = appointment.title;
           appointmentWithDateType.date = new Date(appointment.date)
+          appointmentWithDateType.id = appointment.id;
           return appointmentWithDateType
         })
       })
@@ -38,6 +41,14 @@ export class CalendarComponent implements OnInit {
   AddAppointment(appointment: Appointment): void {
     this.calendarService.addAppointment(appointment)
       .subscribe(() => this.GetAppointments())
+  }
+
+  DeleteAppointment(appointmentId: number): void {
+    const id = appointmentId;
+    this.calendarService.removeAppointment(id)
+      .subscribe(() => {
+        this.GetAppointments()
+      })
   }
 
   ngOnInit() {

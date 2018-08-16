@@ -22,4 +22,8 @@ export class CalendarService {
   addAppointment (appointment: Appointment): Observable<Appointment> {
     return this.http.post<Appointment>('http://localhost:8081/appointments/add', appointment, httpOptions)
   }
+
+  removeAppointment (appointmentId : number): Observable<Appointment> {
+    return this.http.delete<Appointment>(`http://localhost:8081/appointments/${appointmentId}/delete`)
+  }
 }

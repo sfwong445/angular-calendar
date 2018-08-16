@@ -14,4 +14,5 @@ module.exports = function (app) {
     app.get('/users', AuthenticationController.display);
     app.get('/appointments', AppointmentController.display);
     app.post('/appointments/add', AppointmentController.add);
+    app.delete('/appointments/:appointmentId/delete', AppointmentController.delete);
 }

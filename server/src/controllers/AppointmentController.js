@@ -19,9 +19,26 @@ module.exports = {
             });
             res.send(appointments);
         } catch (err) {
-            console.log(err)
             res.status(500).send({
                 error: 'An error occured showing all the appointments.'
+            })
+        }
+    },
+    async delete(req, res) {
+        try {
+            const id = req.params.appointmentId
+            const appointment = await Appointments.findById(id)
+            if (!appointment) {
+                res.status(403).send({
+                    message: 'This appointment does not exist'
+                })
+            }
+            await appointment.destroy()
+            res.send(appointment)
+        } catch (err) {
+            console.log(err)
+            res.status(500).send({
+                error: 'An error occured removing this instance.'
             })
         }
     }

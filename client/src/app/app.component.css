@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    overflow: auto;
 }
 
 .nav-container {
@@ -14,6 +15,7 @@
     background-color: #DB4437;
     display: flex;
     order: 3;
+    overflow: auto;
 }
 
 .text-container {
@@ -21,8 +23,9 @@
     width: 88%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     order: 0;
+    overflow: auto;
 }
 
 
@@ -42,4 +45,14 @@
 .active-button {
     font-weight: bolder;
     color: yellow;
+}
+
+nav { 
+    height: 100vh;
+    bottom: 0;
+}
+
+nav div {
+    margin: 0;
+    padding: 0;
 }
