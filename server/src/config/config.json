@@ -1,29 +1,27 @@
 {
-  "development": {
-    "username": "sfwong445",
-    "password": null,
-    "database": "caldev",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "port": 5432,
-    "secret": "helloMayuko"
-  },
-  "test": {
-    "username": "sfwong445",
-    "password": null,
-    "database": "caldev",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "port": 5432,
-    "secret": "helloMayuko"
-  },
-  "production": {
-    "username": "sfwong445",
-    "password": null,
-    "database": "caldev",
-    "host": "127.0.0.1",
-    "dialect": "postgres",
-    "port": 5432,
-    "secret": "helloMayuko"
-  }
+    "development": {
+        "username": "xouxhfwj",
+        "password": "gfefukU0JDEV6BK3xjw1qLh0so94EQ-j",
+        "database": "xouxhfwj",
+        "host": "tantor.db.elephantsql.com",
+        "dialect": "postgres",
+        "secret": "helloMayuko"
+    },
+    "test": {
+        "username": "sfwong445",
+        "password": null,
+        "database": "caldev",
+        "host": "127.0.0.1",
+        "dialect": "postgres",
+        "port": 5432,
+        "secret": "helloMayuko"
+    },
+    "production": {
+        "username": "xouxhfwj",
+        "password": "gfefukU0JDEV6BK3xjw1qLh0so94EQ-j",
+        "database": "xouxhfwj",
+        "host": "tantor.db.elephantsql.com",
+        "dialect": "postgres",
+        "secret": "helloMayuko"
+    }
 }
