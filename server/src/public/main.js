@@ -575,8 +575,7 @@ var CalendarComponent = /** @class */ (function () {
     }
     CalendarComponent.prototype.GetAppointments = function () {
         var _this = this;
-        this.calendarService.getAppointments()
-            .subscribe(function (appointments) {
+        this.calendarService.getAppointments().subscribe(function (appointments) {
             _this.appointments = appointments;
             _this.appointments = _this.appointments.map(function (appointment) {
                 var appointmentWithDateType = {
@@ -593,14 +592,14 @@ var CalendarComponent = /** @class */ (function () {
     };
     CalendarComponent.prototype.AddAppointment = function (appointment) {
         var _this = this;
-        this.calendarService.addAppointment(appointment)
+        this.calendarService
+            .addAppointment(appointment)
             .subscribe(function () { return _this.GetAppointments(); });
     };
     CalendarComponent.prototype.DeleteAppointment = function (appointmentId) {
         var _this = this;
         var id = appointmentId;
-        this.calendarService.removeAppointment(id)
-            .subscribe(function () {
+        this.calendarService.removeAppointment(id).subscribe(function () {
             _this.GetAppointments();
         });
     };
@@ -608,12 +607,15 @@ var CalendarComponent = /** @class */ (function () {
         var _this = this;
         var dialogRef = this.dialog.open(AppointmentOverviewDialog, {
             width: '270px',
-            data: { id: appointment.id, title: appointment.title, date: appointment.date }
+            data: {
+                id: appointment.id,
+                title: appointment.title,
+                date: appointment.date
+            }
         });
         dialogRef.afterClosed().subscribe(function (result) {
             console.log(result);
-            _this.calendarService.updateAppointment(result)
-                .subscribe(function () {
+            _this.calendarService.updateAppointment(result).subscribe(function () {
                 _this.GetAppointments();
             });
         });
@@ -638,10 +640,13 @@ var AppointmentOverviewDialog = /** @class */ (function () {
         this.dialogRef = dialogRef;
         this.data = data;
     }
+    AppointmentOverviewDialog.prototype.onNoClick = function () {
+        this.dialogRef.close();
+    };
     AppointmentOverviewDialog = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'calendar-dialog',
-            template: __webpack_require__(/*! ./calendar-dialog.html */ "./src/app/calendar/calendar-dialog.html"),
+            template: __webpack_require__(/*! ./calendar-dialog.html */ "./src/app/calendar/calendar-dialog.html")
         }),
         __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MAT_DIALOG_DATA"])),
         __metadata("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"],
